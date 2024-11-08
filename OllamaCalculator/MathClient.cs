@@ -17,7 +17,7 @@ public class MathClient(OllamaClient ollamaClient)
        private string systemWithCorrectResponse = """
                      You are very helpful assistant math assistant. 
                      You will help user to solve math expressions with all your knowledge.
-                     Follwo step by step to solve the expression. 
+                     Follow step by step to solve the expression. 
                      You always answer in object 
                      { 
                          "message"://string: Explain here your solution,
