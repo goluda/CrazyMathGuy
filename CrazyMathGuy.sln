@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OllamaCalculator", "OllamaCalculator\OllamaCalculator.csproj", "{3FFD748C-60D1-4A64-97F4-041A6373FD86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OllamaCalculator.Test", "OllamaCalculator.Test\OllamaCalculator.Test.csproj", "{EBE69193-FBFC-4B48-B3AD-485DED3D6A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OllamaCalculator.Console", "OllamaCalculator.Console\OllamaCalculator.Console.csproj", "{587437DD-1990-4F2C-985B-F855979918A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OllamaCalculator.Avalonia", "OllamaCalculator.Avalonia\OllamaCalculator.Avalonia.csproj", "{57EBC934-A3FC-4306-AA39-B6741E99DC34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FFD748C-60D1-4A64-97F4-041A6373FD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FFD748C-60D1-4A64-97F4-041A6373FD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FFD748C-60D1-4A64-97F4-041A6373FD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FFD748C-60D1-4A64-97F4-041A6373FD86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBE69193-FBFC-4B48-B3AD-485DED3D6A78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBE69193-FBFC-4B48-B3AD-485DED3D6A78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBE69193-FBFC-4B48-B3AD-485DED3D6A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBE69193-FBFC-4B48-B3AD-485DED3D6A78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{587437DD-1990-4F2C-985B-F855979918A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{587437DD-1990-4F2C-985B-F855979918A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{587437DD-1990-4F2C-985B-F855979918A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{587437DD-1990-4F2C-985B-F855979918A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57EBC934-A3FC-4306-AA39-B6741E99DC34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57EBC934-A3FC-4306-AA39-B6741E99DC34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57EBC934-A3FC-4306-AA39-B6741E99DC34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57EBC934-A3FC-4306-AA39-B6741E99DC34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

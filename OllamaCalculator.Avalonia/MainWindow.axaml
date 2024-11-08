@@ -1,0 +1,20 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" Width="600" Height="400"
+        x:Class="OllamaCalculator.Avalonia.MainWindow"
+        Title="OllamaCalculator.Avalonia">
+    <StackPanel Name="MainPanel" Margin="5">
+        <Label Content="Welcome in our calculator" HorizontalAlignment="Center" FontSize="40" FontWeight="Light" Margin="5" />
+        <Label Content="Enter your expression" Margin="5"/>
+        <TextBox Name="TextBoxExpression" Margin="5" Text="2+2"/>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Click me to calculate (funny)" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="CalculateMethod" Margin="5" />
+            <Button Content="Click me to calculate (correct)" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Click="CalculateMethodWithCorrectResponse" Margin="5" />
+        </StackPanel>
+        
+        <Label Name="Result" FontSize="30" FontWeight="Black" Margin="5" VerticalAlignment="Center"/>
+        <TextBlock Name="ResultMessage" FontSize="20" Margin="5" VerticalAlignment="Center" TextWrapping="Wrap"  />
+    </StackPanel>
+</Window>
