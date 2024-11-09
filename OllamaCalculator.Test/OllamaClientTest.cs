@@ -1,8 +1,11 @@
+using System.Text.Json;
+
 namespace OllamaCalculator.Test;
 
 public class OllamaClientTest
 {
     private HttpClient _client;
+    JsonSerializerOptions options=new JsonSerializerOptions();
     [SetUp]
     public void Setup()
     {
@@ -19,7 +22,7 @@ public class OllamaClientTest
     [Test]
     public async Task Test1()
     {
-        var ollamaClient = new OllamaClient(_client);
+        var ollamaClient = new OllamaClient(_client,options);
         var result = await ollamaClient.AskOllama("How are you today?", "");
         Assert.NotNull(result);
     }
@@ -27,7 +30,7 @@ public class OllamaClientTest
     [Test]
     public async Task Test2plu2_Returns_SomeResponse()
     {
-        var mathClient = new MathClient(new OllamaClient(_client));
+        var mathClient = new MathClient(new OllamaClient(_client,options),options);
         var result = await mathClient.DoCalculationFunny("2+2");
         Assert.NotNull(result);
         Assert.NotNull(result.Result);

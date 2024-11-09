@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace OllamaCalculator;
 
-public class MathClient(OllamaClient ollamaClient)
+public class MathClient(OllamaClient ollamaClient,JsonSerializerOptions options)
 {
     private string systemWithIncorrectResponse = """
                                                  You are very helpful assistant but very bad at math. 
@@ -21,17 +21,17 @@ public class MathClient(OllamaClient ollamaClient)
                      You always answer in object 
                      { 
                          "message"://string: Explain here your solution,
-                         "result"://   number
+                         "result"://   number,
                      }
                      """;
     public async Task<CalculatorResponse> DoCalculationFunny(string expression)
     {
         var result = await ollamaClient.AskOllama(expression, systemWithIncorrectResponse) ?? "";
-        return JsonSerializer.Deserialize<CalculatorResponse>(result) ?? new CalculatorResponse();
+        return JsonSerializer.Deserialize<CalculatorResponse>(result,options) ?? new CalculatorResponse();
     }
     public async Task<CalculatorResponse> DoCalculationCorrect(string expression)
     {
         var result = await ollamaClient.AskOllama(expression, systemWithCorrectResponse) ?? "";
-        return JsonSerializer.Deserialize<CalculatorResponse>(result) ?? new CalculatorResponse();
+        return JsonSerializer.Deserialize<CalculatorResponse>(result,options) ?? new CalculatorResponse();
     }
 }

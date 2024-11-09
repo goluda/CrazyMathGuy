@@ -1,4 +1,7 @@
+using System;
 using System.Net.Http;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 
@@ -10,7 +13,15 @@ public partial class MainWindow : Window
     private readonly MathClient _calculator;
     public MainWindow()
     {
-        _calculator = new MathClient(new OllamaClient(new HttpClient()));
+        var options = new JsonSerializerOptions();
+        options.TypeInfoResolverChain.Add(OllamaRequestSerializationContext.Default);
+        options.TypeInfoResolverChain.Add(OllamaResponseSerializationContext.Default);
+        options.TypeInfoResolverChain.Add(CalculatorResponseSerializationContext.Default);
+        options.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        options.PropertyNameCaseInsensitive = false;
+        
+        
+        _calculator = new MathClient(new OllamaClient(new HttpClient(),options),options);
         InitializeComponent();
     }
 
@@ -31,16 +42,37 @@ public partial class MainWindow : Window
 
     async void Calculate(string expression)
     {
-        var result = await _calculator.DoCalculationFunny(expression);
-        Result.Content = result.Result;
-        ResultMessage.Text = result.Message;
+        try
+        {
+            var result = await _calculator.DoCalculationFunny(expression);
+            Result.Content = result.Result;
+            ResultMessage.Text = result.Message;
+        }
+        catch(Exception ex)
+        {
+            ResultMessage.Text = ex.Message;
+        }
 
     }
     async void CalculateWithCorrectResposne(string expression)
     {
-        var result = await _calculator.DoCalculationCorrect(expression);
-        Result.Content = result.Result;
-        ResultMessage.Text = result.Message;
+        try{
+            
+            var result = await _calculator.DoCalculationCorrect(expression);
+            Result.Content = result.Result;
+            ResultMessage.Text = result.Message;
+        }
+        catch(Exception ex)
+        {
+            ResultMessage.Text = ex.Message;
+        }
 
     }
+    
+    [JsonSerializable(typeof(OllamaRequest))]
+    internal partial class OllamaRequestSerializationContext:JsonSerializerContext{}
+    [JsonSerializable(typeof(OllamaResponse))]
+    internal partial class OllamaResponseSerializationContext:JsonSerializerContext{}
+    [JsonSerializable(typeof(CalculatorResponse))]
+    internal partial class CalculatorResponseSerializationContext:JsonSerializerContext{}
 }
